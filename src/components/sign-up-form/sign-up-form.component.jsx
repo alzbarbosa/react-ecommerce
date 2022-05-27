@@ -7,6 +7,7 @@ import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth } from "
 
 import "./sign-up-form.styles.scss"
 
+
 const defaultFormFields = {
 displayName: "",
 email: "",
@@ -32,6 +33,7 @@ const SignUpForm = () => {
 
         try {
             const { user } = await createAuthUserWithEmailAndPassword(email, password)
+
             await createUserDocumentFromAuth(user, { displayName })
             resetFormFields()
         } catch(error) {
