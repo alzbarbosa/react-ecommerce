@@ -4,6 +4,8 @@ import './index.scss';
 import App from './App';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { UserProvider } from './context/user.context';
+import { ProductsProvider } from './context/product.context';
+import { CartProvider } from './context/cart.context';
 
 import reportWebVitals from './reportWebVitals';
 
@@ -12,7 +14,11 @@ root.render(
   <React.StrictMode>
     <Router>
       <UserProvider>
-        <App />
+        <ProductsProvider>
+          <CartProvider>
+            <App />
+          </CartProvider>
+        </ProductsProvider>
       </UserProvider>
     </Router>
   </React.StrictMode>
